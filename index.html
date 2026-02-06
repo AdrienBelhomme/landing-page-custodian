@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ship Ready — AI page builder that learns your Shopify store</title>
+    <meta name="description"
+        content="An AI page builder that learns your Shopify store over time. Create pages with intent, traffic context, and decision continuity — so performance improves with real signals, not guesswork." />
+    <style>
+        :root {
+            --bg: #07090d;
+            --panel: rgba(255, 255, 255, .06);
+            --panel2: rgba(255, 255, 255, .04);
+            --text: rgba(255, 255, 255, .92);
+            --muted: rgba(255, 255, 255, .70);
+            --faint: rgba(255, 255, 255, .55);
+            --border: rgba(255, 255, 255, .12);
+            --border2: rgba(255, 255, 255, .08);
+            --shadow: 0 18px 60px rgba(0, 0, 0, .55);
+            --r: 18px;
+            --r2: 22px;
+            --max: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            color: var(--text);
+            background:
+                radial-gradient(1200px 600px at 20% -10%, rgba(120, 220, 255, .14), transparent 60%),
+                radial-gradient(900px 500px at 85% 0%, rgba(180, 120, 255, .12), transparent 55%),
+                radial-gradient(700px 450px at 55% 120%, rgba(120, 255, 190, .08), transparent 55%),
+                var(--bg);
+            letter-spacing: -0.01em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+        }
+
+        .logo {
+            width: 28px;
+            height: 28px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, .04));
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 18px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .navlinks a:hover {
+            color: var(--text);
+        }
+
+        .hero {
+            padding: 54px 0 28px;
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 26px;
+            align-items: start;
+        }
+
+        @media (max-width: 920px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 36px;
+            }
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid var(--border2);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, .65);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, .08);
+        }
+
+        h1 {
+            margin: 16px 0 12px;
+            font-size: 44px;
+            line-height: 1.02;
+            letter-spacing: -0.04em;
+        }
+
+        @media (max-width: 520px) {
+            h1 {
+                font-size: 36px;
+            }
+        }
+
+        .lead {
+            margin: 0 0 18px;
+            color: var(--muted);
+            font-size: 16.5px;
+            line-height: 1.55;
+            max-width: 56ch;
+        }
+
+        .ctaRow {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .06);
+            color: var(--text);
+            font-weight: 620;
+            font-size: 14.5px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, .22);
+            transition: transform .12s ease, background .12s ease, border-color .12s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, .08);
+            border-color: rgba(255, 255, 255, .16);
+        }
+
+        .btn.primary {
+            background: rgba(255, 255, 255, .92);
+            color: #0b0d12;
+            border-color: rgba(255, 255, 255, .92);
+        }
+
+        .btn.primary:hover {
+            background: rgba(255, 255, 255, .98);
+        }
+
+        .subnote {
+            margin-top: 10px;
+            color: var(--faint);
+            font-size: 13px;
+        }
+
+        .card {
+            border-radius: var(--r2);
+            border: 1px solid var(--border2);
+            background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .03));
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .cardInner {
+            padding: 18px;
+        }
+
+        .miniTitle {
+            color: var(--faint);
+            font-size: 12px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .list {
+            margin: 12px 0 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 10px 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(0, 0, 0, .18);
+        }
+
+        .li b {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .li span {
+            color: var(--muted);
+            font-size: 13.5px;
+            line-height: 1.45;
+        }
+
+        .icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            background: rgba(255, 255, 255, .06);
+            flex: 0 0 auto;
+        }
+
+        .proofStrip {
+            margin-top: 18px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .tag {
+            padding: 8px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border2);
+            background: rgba(255, 255, 255, .04);
+        }
+
+        .section {
+            padding: 42px 0;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .grid2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        @media (max-width: 860px) {
+            .grid2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        h2 {
+            margin: 0 0 10px;
+            font-size: 22px;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .box {
+            border-radius: var(--r);
+            border: 1px solid var(--border2);
+            background: rgba(255, 255, 255, .03);
+            padding: 16px;
+        }
+
+        .bullets {
+            margin: 12px 0 0;
+            padding-left: 18px;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .bullets li {
+            margin: 4px 0;
+        }
+
+        .pillRow {
+            margin-top: 14px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pilarGrid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        @media (max-width: 920px) {
+            .pilarGrid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pilar {
+            border-radius: var(--r);
+            border: 1px solid var(--border2);
+            background: rgba(255, 255, 255, .03);
+            padding: 16px;
+        }
+
+        .pilar h3 {
+            margin: 0 0 8px;
+            font-size: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .pilar p {
+            font-size: 14px;
+        }
+
+        .final {
+            padding: 46px 0 64px;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .footer {
+            padding: 18px 0 30px;
+            color: var(--faint);
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer a {
+            color: var(--faint);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="nav">
+            <div class="brand">
+                <div class="logo"></div>
+                <div>Ship Ready</div>
+            </div>
+            <div class="navlinks">
+                <a href="#how">How it works</a>
+                <a href="#pillars">Pillars</a>
+                <a href="#beta">Beta</a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <div>
+                <div class="pill"><span class="dot"></span> AI page builder with continuity</div>
+                <h1>An AI page builder that learns your Shopify store over time.</h1>
+                <p class="lead">
+                    Create Shopify pages — and keep track of intent, traffic, and decisions —
+                    so your pages improve with real signals, not guesswork.
+                </p>
+
+                <div class="ctaRow" id="beta">
+                    <a class="btn primary" href="https://example.com" target="_blank" rel="noreferrer">
+                        Join beta <span aria-hidden="true">→</span>
+                    </a>
+                    <a class="btn" href="https://example.com" target="_blank" rel="noreferrer">
+                        Download deck
+                    </a>
+                    <a class="btn" href="#how">
+                        See how it works
+                    </a>
+                </div>
+                <div class="subnote">
+                    No dashboards. No metric hell. Just senior intelligence that holds the thread.
+                </div>
+
+                <div class="proofStrip">
+                    <div class="tag">Pages don’t exist in isolation.</div>
+                    <div class="tag">Decisions do.</div>
+                    <div class="tag">Most builders start from zero every time.</div>
+                    <div class="tag">This one builds on what already happened.</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="cardInner">
+                    <div class="miniTitle">What we keep track of</div>
+                    <div class="list">
+                        <div class="li">
+                            <div class="icon"></div>
+                            <div>
+                                <b>Page intent & hypothesis</b>
+                                <span>Every version starts with a decision you can validate.</span>
+                            </div>
+                        </div>
+                        <div class="li">
+                            <div class="icon"></div>
+                            <div>
+                                <b>Traffic context</b>
+                                <span>TOFU / BOFU + channel, so structure matches the message.</span>
+                            </div>
+                        </div>
+                        <div class="li">
+                            <div class="icon"></div>
+                            <div>
+                                <b>Version history</b>
+                                <span>What changed, why, expected impact — and what really happened.</span>
+                            </div>
+                        </div>
+                        <div class="li">
+                            <div class="icon"></div>
+                            <div>
+                                <b>Expected vs observed</b>
+                                <span>Continuity turns optimization into a clear loop, not chaos.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pillRow">
+                        <div class="tag">No context = blind optimization</div>
+                        <div class="tag">Context = senior operator</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="how">
+            <div class="grid2">
+                <div class="box">
+                    <h2>Page performance needs context — with or without AI.</h2>
+                    <p>
+                        Pages don’t fail randomly. They fail when intent, traffic, and decisions get disconnected.
+                        Our AI page builder uses real store context — so you stop guessing,
+                        and pages improve for the right reasons.
+                    </p>
+                </div>
+
+                <div class="box">
+                    <h2>High-performing pages start with the right inputs.</h2>
+                    <p>
+                        Most Shopify pages are created without a clear goal, a traffic context, or a testable
+                        hypothesis.
+                        They’re just another page. We start where others stop: with intent, traffic, and a decision to
+                        validate.
+                    </p>
+                    <ul class="bullets">
+                        <li>A defined objective (what should improve)</li>
+                        <li>A traffic context (who it’s for, where it comes from)</li>
+                        <li>A hypothesis (why this should work)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid2" style="margin-top: 18px;">
+                <div class="box">
+                    <h2>No garbage in. No garbage out.</h2>
+                    <p>
+                        Avoid guesswork before it starts. Your page is only as good as the context it’s built on.
+                    </p>
+                </div>
+
+                <div class="box">
+                    <h2>Easy to create. Even easier to improve over time.</h2>
+                    <p>
+                        Creating a page takes minutes. Improving it doesn’t require starting over.
+                        The system keeps track of what you tried, what you expected, and what actually happened —
+                        so optimization becomes continuity, not chaos.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="pillars">
+            <h2>Core pillars</h2>
+            <div class="pilarGrid" style="margin-top: 12px;">
+                <div class="pilar">
+                    <h3>🧠 Built on decisions, not iterations</h3>
+                    <p>Each page starts with a clear intent and hypothesis — and evolves based on what actually
+                        happened.</p>
+                </div>
+                <div class="pilar">
+                    <h3>⏳ Slows you down when speed would hurt</h3>
+                    <p>The system knows when to act — and when to wait. No premature changes. No daily tinkering.</p>
+                </div>
+                <div class="pilar">
+                    <h3>🧭 Failure is handled, not hidden</h3>
+                    <p>When something doesn’t work, you get a clear explanation — and the safest next move.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="grid2">
+                <div class="box">
+                    <h2>From day one, it takes the lead.</h2>
+                    <p>
+                        Install the app and get a Store Brief: a clear read of what’s happening in your store — and
+                        where to focus.
+                        No setup maze. No blank screen. No guessing.
+                    </p>
+                </div>
+                <div class="box">
+                    <h2>Quiet differentiation</h2>
+                    <ul class="bullets">
+                        <li>Other tools generate pages → this one builds continuity</li>
+                        <li>Other tools optimize metrics → this one protects decisions</li>
+                        <li>Other tools push action → this one explains when not to act</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="final">
+            <div class="card">
+                <div class="cardInner">
+                    <h2 style="margin-bottom: 8px;">Build pages that don’t start from scratch.</h2>
+                    <p style="margin-bottom: 16px;">
+                        Built to reduce decision risk. Designed to stay out of your way.
+                        We suggest. You decide. In minutes — not days.
+                    </p>
+                    <div class="ctaRow">
+                        <a class="btn primary" href="https://example.com" target="_blank" rel="noreferrer">
+                            Start building <span aria-hidden="true">→</span>
+                        </a>
+                        <a class="btn" href="mailto:hello@example.com">
+                            Contact
+                        </a>
+                    </div>
+                    <div class="subnote" style="margin-top:12px;">
+                        Landing v1 locked. Any change requires explicit decision.
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div>© <span id="y"></span> Ship Ready</div>
+                <div>
+                    <a href="#how">How it works</a> · <a href="#pillars">Pillars</a> · <a href="#beta">Beta</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

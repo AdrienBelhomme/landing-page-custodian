@@ -6,38 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Custodian Commerce — Ship Ready</title>
     <meta name="description"
-        content="An AI page builder that learns your Shopify store over time. Create pages with intent, traffic, and decisions — so performance improves with real signals, not guesswork." />
+        content="An AI page builder that learns your Shopify store over time. Create Shopify pages — and keep track of intent, traffic, and decisions — so your pages improve with real signals, not guesswork." />
 
     <style>
         :root {
-            --bg0: #07080b;
-            --bg1: #0b0d12;
-            --text: rgba(255, 255, 255, .92);
-            --muted: rgba(255, 255, 255, .70);
-            --faint: rgba(255, 255, 255, .55);
+            /* Fluar-like: light, airy, quiet */
+            --bg: #f5f6f8;
+            --bg2: #ffffff;
+            --text: #0b0d12;
+            --muted: #4b5563;
+            --faint: #6b7280;
 
-            --border: rgba(255, 255, 255, .10);
-            --border2: rgba(255, 255, 255, .08);
+            --border: rgba(15, 23, 42, .12);
+            --border2: rgba(15, 23, 42, .08);
 
-            --glass: rgba(255, 255, 255, .06);
-            --glass2: rgba(255, 255, 255, .04);
+            --glass: rgba(255, 255, 255, .72);
+            --glass2: rgba(255, 255, 255, .55);
 
-            --shadow: 0 18px 60px rgba(0, 0, 0, .50);
-            --shadow2: 0 10px 30px rgba(0, 0, 0, .30);
+            --shadow: 0 16px 40px rgba(15, 23, 42, .10);
+            --shadow2: 0 10px 24px rgba(15, 23, 42, .10);
 
             --r: 16px;
             --r2: 22px;
-
-            --max: 1120px;
+            --max: 1080px;
         }
 
         * {
-            box-sizing: border-box
+            box-sizing: border-box;
         }
 
         html,
         body {
-            height: 100%
+            height: 100%;
         }
 
         body {
@@ -45,35 +45,44 @@
             font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
             color: var(--text);
             background:
-                radial-gradient(1100px 680px at 20% -10%, rgba(120, 220, 255, .14), transparent 60%),
-                radial-gradient(900px 520px at 86% 0%, rgba(170, 120, 255, .12), transparent 55%),
-                radial-gradient(900px 520px at 55% 110%, rgba(120, 255, 190, .08), transparent 55%),
-                linear-gradient(180deg, var(--bg0), var(--bg1));
+                radial-gradient(1200px 700px at 20% -10%, rgba(59, 130, 246, .14), transparent 60%),
+                radial-gradient(1000px 640px at 90% 0%, rgba(168, 85, 247, .10), transparent 55%),
+                linear-gradient(180deg, var(--bg), var(--bg2));
             letter-spacing: -0.01em;
+        }
+
+        /* subtle grid like Fluar */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .28;
+            background-image:
+                linear-gradient(to right, rgba(15, 23, 42, .06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 23, 42, .06) 1px, transparent 1px);
+            background-size: 120px 120px;
+            transform: skewY(-6deg);
+            transform-origin: top left;
         }
 
         a {
             color: inherit;
-            text-decoration: none
+            text-decoration: none;
         }
 
         .wrap {
             max-width: var(--max);
             margin: 0 auto;
-            padding: 24px
+            padding: 24px;
+            position: relative;
         }
 
         .topPad {
-            padding-top: 84px
+            padding-top: 92px;
         }
 
-        @media (max-width: 760px) {
-            .topPad {
-                padding-top: 92px
-            }
-        }
-
-        /* Liquid glass floating nav */
+        /* Floating liquid-glass nav */
         .navFloat {
             position: fixed;
             top: 14px;
@@ -81,22 +90,21 @@
             transform: translateX(-50%);
             z-index: 50;
             width: min(var(--max), calc(100% - 24px));
-            padding: 0 12px;
         }
 
         .navPill {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 14px;
+            gap: 16px;
 
             padding: 10px 12px;
             border-radius: 999px;
 
-            background: linear-gradient(180deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .04));
+            background: linear-gradient(180deg, var(--glass), var(--glass2));
             border: 1px solid var(--border2);
-
             box-shadow: var(--shadow2);
+
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
@@ -105,7 +113,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            padding-left: 4px;
             font-weight: 650;
             letter-spacing: -0.02em;
             white-space: nowrap;
@@ -115,32 +122,26 @@
             width: 26px;
             height: 26px;
             border-radius: 10px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, .04));
-            border: 1px solid rgba(255, 255, 255, .14);
+            background: radial-gradient(circle at 30% 30%, rgba(15, 23, 42, .10), rgba(15, 23, 42, .02));
+            border: 1px solid var(--border2);
         }
 
         .links {
             display: flex;
             align-items: center;
             gap: 16px;
-            color: var(--muted);
             font-size: 13px;
+            color: var(--muted);
         }
 
         .links a:hover {
-            color: var(--text)
+            color: var(--text);
         }
 
         @media (max-width: 760px) {
             .links {
-                display: none
+                display: none;
             }
-        }
-
-        .navCtas {
-            display: flex;
-            align-items: center;
-            gap: 10px
         }
 
         .btn {
@@ -148,197 +149,115 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 10px 12px;
+            padding: 10px 14px;
             border-radius: 999px;
             border: 1px solid var(--border);
-            background: rgba(255, 255, 255, .06);
-            color: var(--text);
-            font-weight: 620;
+            background: rgba(15, 23, 42, .92);
+            color: #fff;
+            font-weight: 650;
             font-size: 13px;
-            transition: transform .12s ease, background .12s ease, border-color .12s ease;
+            box-shadow: 0 10px 22px rgba(15, 23, 42, .18);
+            transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+            white-space: nowrap;
         }
 
         .btn:hover {
             transform: translateY(-1px);
-            background: rgba(255, 255, 255, .08);
-            border-color: rgba(255, 255, 255, .16)
+            box-shadow: 0 14px 26px rgba(15, 23, 42, .20);
+            background: rgba(15, 23, 42, .96);
         }
 
-        .btn.primary {
-            background: rgba(255, 255, 255, .92);
-            color: #0b0d12;
-            border-color: rgba(255, 255, 255, .92);
-        }
-
-        .btn.primary:hover {
-            background: rgba(255, 255, 255, .98)
-        }
-
-        .btn.ghost {
-            background: transparent;
-            border-color: transparent;
-            color: var(--muted)
-        }
-
-        .btn.ghost:hover {
-            background: rgba(255, 255, 255, .06);
-            border-color: rgba(255, 255, 255, .10);
-            color: var(--text)
-        }
-
-        @media (max-width: 760px) {
-            .btn.ghost {
-                display: none
-            }
-        }
-
-        /* Hero */
+        /* Hero: minimal */
         .hero {
-            padding: 30px 0 10px;
+            padding: 42px 0 18px;
             display: grid;
-            grid-template-columns: 1.15fr .85fr;
+            grid-template-columns: 1fr;
             gap: 18px;
             align-items: start;
         }
 
-        @media (max-width: 980px) {
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 14px
-            }
-        }
-
-        .kicker {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 12px;
-            border-radius: 999px;
-            border: 1px solid var(--border2);
-            background: rgba(255, 255, 255, .04);
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 99px;
-            background: rgba(255, 255, 255, .75);
-            box-shadow: 0 0 0 4px rgba(255, 255, 255, .10);
-        }
-
         h1 {
-            margin: 14px 0 10px;
-            font-size: 54px;
+            margin: 0;
+            font-size: 64px;
             line-height: 1.02;
             letter-spacing: -0.05em;
+            max-width: 18ch;
         }
 
         @media (max-width: 560px) {
             h1 {
-                font-size: 40px
+                font-size: 44px;
             }
         }
 
-        .lead {
-            margin: 0;
+        .sub {
             color: var(--muted);
-            font-size: 16.5px;
+            font-size: 18px;
             line-height: 1.55;
-            max-width: 62ch;
-        }
-
-        .heroCtas {
-            margin-top: 18px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .note {
+            max-width: 72ch;
             margin-top: 10px;
-            color: var(--faint);
+        }
+
+        .heroRow {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .helper {
             font-size: 13px;
+            color: var(--faint);
         }
 
-        /* Glass cards */
-        .card {
-            border-radius: var(--r2);
-            border: 1px solid var(--border2);
-            background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .03));
-            box-shadow: var(--shadow);
-            overflow: hidden;
+        /* Stepper (Fluar-like) */
+        .stepperWrap {
+            margin-top: 14px;
+            display: flex;
+            justify-content: center;
         }
 
-        .cardInner {
-            padding: 16px
-        }
-
-        .miniTitle {
-            color: rgba(255, 255, 255, .55);
-            font-size: 11px;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-        }
-
-        .steps {
-            margin-top: 12px;
-            display: grid;
+        .stepper {
+            display: flex;
+            align-items: center;
             gap: 10px;
+            padding: 8px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .75);
+            border: 1px solid var(--border2);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
         .step {
+            padding: 10px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            color: var(--muted);
             display: flex;
-            gap: 12px;
-            padding: 12px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, .10);
-            background: rgba(0, 0, 0, .18);
-        }
-
-        .ic {
-            width: 28px;
-            height: 28px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, .14);
-            background: rgba(255, 255, 255, .06);
-            flex: 0 0 auto;
+            gap: 8px;
+            align-items: center;
+            white-space: nowrap;
         }
 
         .step b {
-            display: block;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .sep {
+            color: rgba(15, 23, 42, .22);
             font-size: 14px;
-            margin-bottom: 3px
+            user-select: none;
         }
 
-        .step span {
-            color: var(--muted);
-            font-size: 13.5px;
-            line-height: 1.45
-        }
-
-        /* Proof strip */
-        .proof {
-            margin-top: 14px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            padding: 8px 10px;
-            border-radius: 999px;
-            border: 1px solid var(--border2);
-            background: rgba(255, 255, 255, .03);
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        /* Sections */
+        /* Sections below hero */
         .section {
             padding: 44px 0;
-            border-top: 1px solid rgba(255, 255, 255, .08);
+            border-top: 1px solid rgba(15, 23, 42, .10);
+            position: relative;
         }
 
         .grid2 {
@@ -349,8 +268,18 @@
 
         @media (max-width: 920px) {
             .grid2 {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
             }
+        }
+
+        .box {
+            border-radius: var(--r2);
+            border: 1px solid var(--border2);
+            background: rgba(255, 255, 255, .72);
+            box-shadow: var(--shadow2);
+            padding: 18px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         h2 {
@@ -362,87 +291,36 @@
         p {
             margin: 0;
             color: var(--muted);
-            line-height: 1.65
-        }
-
-        .box {
-            border-radius: var(--r);
-            border: 1px solid var(--border2);
-            background: rgba(255, 255, 255, .03);
-            padding: 16px;
+            line-height: 1.7;
+            font-size: 15px;
         }
 
         .bullets {
             margin: 12px 0 0;
             padding-left: 18px;
             color: var(--muted);
-            line-height: 1.75;
+            line-height: 1.9;
+            font-size: 15px;
         }
 
-        .bullets li {
-            margin: 4px 0
-        }
-
-        /* Pillars */
-        .pillars {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+        .pills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
             margin-top: 12px;
         }
 
-        @media (max-width: 980px) {
-            .pillars {
-                grid-template-columns: 1fr
-            }
-        }
-
-        .pillar {
-            border-radius: var(--r);
+        .pill {
+            padding: 8px 12px;
+            border-radius: 999px;
             border: 1px solid var(--border2);
-            background: rgba(255, 255, 255, .03);
-            padding: 16px;
-        }
-
-        .pillar h3 {
-            margin: 0 0 8px;
-            font-size: 16px;
-            letter-spacing: -0.01em
-        }
-
-        .pillar p {
-            font-size: 14px
-        }
-
-        /* Quiet differentiation */
-        .diff {
-            margin-top: 10px;
-            display: grid;
-            gap: 8px;
-        }
-
-        .diffItem {
-            padding: 12px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, .10);
-            background: rgba(0, 0, 0, .14);
+            background: rgba(255, 255, 255, .75);
             color: var(--muted);
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        .arrow {
-            color: rgba(255, 255, 255, .70)
-        }
-
-        /* Footer */
-        .final {
-            padding: 48px 0 62px;
-            border-top: 1px solid rgba(255, 255, 255, .08);
+            font-size: 13px;
         }
 
         .footer {
-            margin-top: 18px;
+            padding: 22px 0 34px;
             color: var(--faint);
             font-size: 13px;
             display: flex;
@@ -454,13 +332,13 @@
         .footer a {
             color: var(--faint);
             text-decoration: underline;
-            text-underline-offset: 3px
+            text-underline-offset: 3px;
         }
     </style>
 </head>
 
 <body>
-    <!-- Floating liquid-glass nav -->
+    <!-- Floating nav -->
     <div class="navFloat">
         <div class="navPill">
             <div class="brand">
@@ -469,127 +347,110 @@
             </div>
 
             <nav class="links" aria-label="Primary">
-                <a href="#how">How it works</a>
+                <a href="#context">Context</a>
+                <a href="#inputs">Inputs</a>
                 <a href="#pillars">Pillars</a>
-                <a href="#beta">Beta</a>
+                <a href="#install">Install</a>
             </nav>
 
-            <div class="navCtas">
-                <a class="btn ghost" href="#how">See how it works</a>
-                <!-- TODO: replace these URLs -->
-                <a class="btn primary" href="https://example.com" target="_blank" rel="noreferrer">Join beta →</a>
-            </div>
+            <!-- Single CTA (same action everywhere) -->
+            <!-- TODO: replace href -->
+            <a class="btn" href="https://example.com" target="_blank" rel="noreferrer">Build your first page →</a>
         </div>
     </div>
 
     <div class="wrap topPad">
-        <!-- HERO -->
+        <!-- HERO (minimal) -->
         <section class="hero">
             <div>
-                <div class="kicker"><span class="dot"></span> Landing v1 — Ship Ready (locked)</div>
-
                 <h1>An AI page builder that learns your Shopify store over time.</h1>
-
-                <p class="lead">
+                <div class="sub">
                     Create Shopify pages — and keep track of intent, traffic, and decisions —
                     so your pages improve with real signals, not guesswork.
-                </p>
-
-                <div class="heroCtas" id="beta">
-                    <!-- TODO: replace these URLs -->
-                    <a class="btn primary" href="https://example.com" target="_blank" rel="noreferrer">Build your first
-                        page →</a>
-                    <a class="btn" href="https://example.com" target="_blank" rel="noreferrer">Join beta</a>
-                    <a class="btn" href="#how">See how it works</a>
                 </div>
 
-                <div class="note">No dashboards. No metrics hell. Senior decisions, held over time.</div>
-
-                <div class="proof">
-                    <div class="tag">Pages don’t exist in isolation.</div>
-                    <div class="tag">Decisions do.</div>
-                    <div class="tag">Most page builders start from zero every time.</div>
-                    <div class="tag">This one builds on what already happened.</div>
+                <div class="heroRow">
+                    <!-- Single CTA -->
+                    <!-- TODO: replace href -->
+                    <a class="btn" href="https://example.com" target="_blank" rel="noreferrer">Build your first page
+                        →</a>
+                    <div class="helper">One action. No noise.</div>
                 </div>
             </div>
 
-            <aside class="card" aria-label="What we keep track of">
-                <div class="cardInner">
-                    <div class="miniTitle">What we keep track of</div>
-
-                    <div class="steps">
-                        <div class="step">
-                            <div class="ic" aria-hidden="true"></div>
-                            <div>
-                                <b>Page intent & hypothesis</b>
-                                <span>Every version starts with a decision you can validate.</span>
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <div class="ic" aria-hidden="true"></div>
-                            <div>
-                                <b>Traffic source</b>
-                                <span>TOFU / BOFU + channel, so structure matches the message.</span>
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <div class="ic" aria-hidden="true"></div>
-                            <div>
-                                <b>Version history & past changes</b>
-                                <span>What changed, why it changed, and what you expected.</span>
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <div class="ic" aria-hidden="true"></div>
-                            <div>
-                                <b>Expected vs observed impact</b>
-                                <span>So optimization becomes continuity — not chaos.</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Stepper under hero -->
+            <div class="stepperWrap" aria-label="How it works in 4 steps">
+                <div class="stepper">
+                    <div class="step"><b>1.</b> Connect Shopify</div>
+                    <div class="sep">→</div>
+                    <div class="step"><b>2.</b> Create your page</div>
+                    <div class="sep">→</div>
+                    <div class="step"><b>3.</b> Optimize it</div>
+                    <div class="sep">→</div>
+                    <div class="step"><b>4.</b> Convert</div>
                 </div>
-            </aside>
+            </div>
+        </section>
+
+        <!-- PROOF STRIP (moved below hero, not inside hero) -->
+        <section class="section" id="proof">
+            <div class="box">
+                <h2>Pages don’t exist in isolation. Decisions do.</h2>
+                <p>
+                    Most page builders start from zero every time. This one builds on what already happened.
+                </p>
+            </div>
         </section>
 
         <!-- CONTEXT -->
-        <section class="section" id="how">
+        <section class="section" id="context">
             <div class="grid2">
                 <div class="box">
                     <h2>Page performance needs context — with or without AI.</h2>
                     <p>
                         Pages don’t fail randomly. They fail when intent, traffic, and decisions get disconnected.
-                        Our AI page builder uses real store context — so you stop guessing, and pages improve for the
-                        right reasons.
+                        Our AI page builder uses real store context —
+                        so you stop guessing, and pages improve for the right reasons.
                     </p>
                 </div>
-
                 <div class="box">
-                    <h2>No context means blind optimization.</h2>
-                    <p>
-                        Context turns AI into a senior operator.
-                    </p>
+                    <h2>What we keep track of</h2>
+                    <ul class="bullets">
+                        <li>Page intent &amp; hypothesis</li>
+                        <li>Traffic source (TOFU / BOFU, channel)</li>
+                        <li>Version history &amp; past changes</li>
+                        <li>Expected vs observed impact</li>
+                    </ul>
+                    <div class="pills">
+                        <div class="pill">No context means blind optimization.</div>
+                        <div class="pill">Context turns AI into a senior operator.</div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="grid2" style="margin-top:14px;">
+        <!-- INPUT QUALITY -->
+        <section class="section" id="inputs">
+            <div class="grid2">
                 <div class="box">
-                    <h2>Input quality</h2>
+                    <h2>High-performing pages start with the right inputs.</h2>
                     <p>
-                        Most Shopify pages are created without a clear goal, a traffic context, or a testable
-                        hypothesis.
-                        They’re just another page. Our page builder starts where others stop: intent, traffic, and a
-                        decision to validate.
+                        Most Shopify pages are created without:
+                        a clear goal
+                        a traffic context
+                        a testable hypothesis
+                        They’re just another page.
+                        Our page builder starts where others stop:
+                        with intent, traffic, and a decision to validate.
                     </p>
                 </div>
 
                 <div class="box">
                     <h2>No garbage in. No garbage out.</h2>
                     <p>
-                        Your page is only as good as the context it’s built on. That’s why we never create a page
-                        without:
+                        Avoid guesswork before it starts.
+                        Your page is only as good as the context it’s built on.
+                        That’s why we never create a page without:
                     </p>
                     <ul class="bullets">
                         <li>A defined objective (what should improve)</li>
@@ -603,18 +464,24 @@
                 <div class="box">
                     <h2>Easy to create. Even easier to improve over time.</h2>
                     <p>
-                        Creating a page takes minutes. Improving it doesn’t require starting over.
-                        The system keeps track of what you tried, what you expected, and what actually happened —
+                        Creating a page takes minutes.
+                        Improving it doesn’t require starting over.
+                        The system keeps track of what you tried,
+                        what you expected,
+                        and what actually happened —
                         so optimization becomes continuity, not chaos.
                     </p>
                 </div>
-
                 <div class="box">
-                    <h2>Install promise</h2>
+                    <h2>Trust signature</h2>
                     <p>
-                        From day one, it takes the lead. Install the app and get a Store Brief:
-                        a clear read of what’s happening in your store — and where to focus.
-                        No setup maze. No blank screen. No guessing.
+                        Built to reduce decision risk.
+                        Designed to stay out of your way.
+                        We suggest. You decide.
+                        In minutes — not days.
+                        No dashboards.
+                        No metrics hell.
+                        Just senior intelligence to help you decide faster and better.
                     </p>
                 </div>
             </div>
@@ -622,77 +489,44 @@
 
         <!-- CORE PILLARS -->
         <section class="section" id="pillars">
-            <h2>Core pillars</h2>
-            <div class="pillars">
-                <div class="pillar">
-                    <h3>🧠 Built on decisions, not iterations</h3>
-                    <p>Each page starts with a clear intent and hypothesis — and evolves based on what actually
-                        happened.</p>
-                </div>
-                <div class="pillar">
-                    <h3>⏳ Slows you down when speed would hurt</h3>
-                    <p>The system knows when to act — and when to wait. No premature changes. No daily tinkering.</p>
-                </div>
-                <div class="pillar">
-                    <h3>🧭 Failure is handled, not hidden</h3>
-                    <p>When something doesn’t work, you get a clear explanation — and the safest next move.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIFFERENTIATION -->
-        <section class="section">
             <div class="grid2">
                 <div class="box">
-                    <h2>Quiet differentiation</h2>
-                    <div class="diff">
-                        <div class="diffItem">Other tools generate pages <span class="arrow">→</span> this one builds
-                            continuity</div>
-                        <div class="diffItem">Other tools optimize metrics <span class="arrow">→</span> this one
-                            protects decisions</div>
-                        <div class="diffItem">Other tools push action <span class="arrow">→</span> this one explains
-                            when not to act</div>
-                    </div>
+                    <h2>Core pillars</h2>
+                    <ul class="bullets">
+                        <li>🧠 Built on decisions, not iterations</li>
+                        <li>⏳ Slows you down when speed would hurt</li>
+                        <li>🧭 Failure is handled, not hidden</li>
+                    </ul>
                 </div>
-
                 <div class="box">
-                    <h2>Trust signature</h2>
-                    <p>
-                        Built to reduce decision risk. Designed to stay out of your way.
-                        We suggest. You decide. In minutes — not days.
-                        No dashboards. No metrics hell.
-                        Just senior intelligence to help you decide faster and better.
-                    </p>
+                    <h2>Quiet differentiation</h2>
+                    <ul class="bullets">
+                        <li>Other tools generate pages → this one builds continuity</li>
+                        <li>Other tools optimize metrics → this one protects decisions</li>
+                        <li>Other tools push action → this one explains when not to act</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- FINAL CTA -->
-        <section class="final">
-            <div class="card">
-                <div class="cardInner">
-                    <h2 style="margin-bottom:8px;">Build pages that don’t start from scratch.</h2>
-                    <p style="margin-bottom:16px;">
-                        Start building → keep the thread → improve with signals.
-                    </p>
-                    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                        <!-- TODO: replace these URLs -->
-                        <a class="btn primary" href="https://example.com" target="_blank" rel="noreferrer">Join beta
-                            →</a>
-                        <a class="btn" href="https://example.com" target="_blank" rel="noreferrer">Download deck</a>
-                        <a class="btn" href="mailto:hello@custodiancommerce.com">Contact</a>
-                    </div>
-                    <div class="note" style="margin-top:12px;">
-                        Landing v1 locked. Any change requires explicit decision.
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer">
-                <div>© <span id="y"></span> Custodian Commerce</div>
-                <div><a href="#how">How it works</a> · <a href="#pillars">Pillars</a> · <a href="#beta">Beta</a></div>
+        <!-- INSTALL PROMISE -->
+        <section class="section" id="install">
+            <div class="box">
+                <h2>From day one, it takes the lead.</h2>
+                <p>
+                    Install the app and get a Store Brief:
+                    a clear read of what’s happening in your store — and where to focus.
+                    No setup maze.
+                    No blank screen.
+                    No guessing.
+                </p>
             </div>
         </section>
+
+        <div class="footer">
+            <div>© <span id="y"></span> Custodian Commerce</div>
+            <div><a href="#context">Context</a> · <a href="#inputs">Inputs</a> · <a href="#pillars">Pillars</a></div>
+        </div>
     </div>
 
     <script>

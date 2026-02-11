@@ -682,6 +682,136 @@
         .heroMedia .card {
             width: min(1080px, 100%);
         }
+
+        /* --- Propy-style top pill --- */
+        .heroTopPill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .78);
+            border: 1px solid rgba(15, 23, 42, .08);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, .08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: rgba(11, 13, 18, .78);
+            font-size: 13px;
+        }
+
+        .heroTopPill .spark {
+            width: 18px;
+            height: 18px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            background: rgba(47, 122, 95, .10);
+            border: 1px solid rgba(47, 122, 95, .18);
+            color: var(--accent-green);
+            font-weight: 900;
+        }
+
+        .heroTopPill b {
+            color: rgba(11, 13, 18, .92);
+            font-weight: 750;
+        }
+
+        /* --- Tiny floating cards around Daily Brief (optional but nice) --- */
+        .heroFloat {
+            position: absolute;
+            border-radius: 999px;
+            padding: 8px 10px;
+            font-size: 12px;
+            background: rgba(255, 255, 255, .80);
+            border: 1px solid rgba(15, 23, 42, .10);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, .10);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: rgba(11, 13, 18, .86);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 6;
+        }
+
+        .heroFloat i {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: var(--accent-green);
+            box-shadow: 0 0 0 4px rgba(47, 122, 95, .14);
+        }
+
+        .heroFloat.orange i {
+            background: var(--accent-orange);
+            box-shadow: 0 0 0 4px rgba(255, 138, 61, .14);
+        }
+
+        .heroFloat.gray i {
+            background: rgba(15, 23, 42, .35);
+            box-shadow: 0 0 0 4px rgba(15, 23, 42, .08);
+        }
+
+        .heroMedia {
+            position: relative;
+            /* so floats can attach */
+        }
+
+        /* positions for the floats */
+        .f1 {
+            top: -12px;
+            right: 18px;
+        }
+
+        .f2 {
+            top: 86px;
+            left: 14px;
+        }
+
+        .f3 {
+            bottom: -12px;
+            right: 28px;
+        }
+
+        /* --- Micro tags row INSIDE the Daily Brief card --- */
+        .tagRow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            padding: 7px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            border: 1px solid rgba(15, 23, 42, .10);
+            background: rgba(255, 255, 255, .72);
+            color: rgba(11, 13, 18, .78);
+            box-shadow: 0 10px 22px rgba(15, 23, 42, .06);
+        }
+
+        .tag strong {
+            color: rgba(11, 13, 18, .92);
+            font-weight: 750;
+        }
+
+        .tag.green {
+            background: rgba(47, 122, 95, .10);
+            border-color: rgba(47, 122, 95, .18);
+            color: #1f5e46;
+        }
+
+        .tag.orange {
+            background: rgba(255, 138, 61, .12);
+            border-color: rgba(255, 138, 61, .22);
+            color: #a64a14;
+        }
+
+        /* small visual polish inside card rows */
+        .row {
+            box-shadow: 0 10px 18px rgba(15, 23, 42, .05);
+        }
     </style>
 </head>
 
@@ -708,10 +838,15 @@
     <div class="wrap topPad">
         <section class="hero heroCenter">
             <div class="heroInner">
-                <h1>Pages that understand your store and improve to convert better over time.</h1>
+                <div class="heroTopPill" aria-label="Product status">
+                    <span class="spark">✦</span>
+                    <span><b>Early access</b> · Decision-driven pages for Shopify</span>
+                </div>
+                <h1>Shopify pages that understand your store and improve to convert better over time.</h1>
 
                 <p class="sub">
-                    Built from your audience, traffic source, and real behavior data, Custodian builds and continuously
+                    Built from your audience, traffic source, and real behavior data. <br /> Custodian builds and
+                    continuously
                     improves each page like a senior growth team inside your store.<br />
                     No templates. No guesswork. No brief required.
                 </p>
@@ -725,10 +860,19 @@
 
 
                 <div class="heroMedia">
+                    <div class="heroFloat f1"><i></i> Store-aware build</div>
+                    <div class="heroFloat orange f2"><i></i> Expected +4–7%</div>
+                    <div class="heroFloat gray f3"><i></i> Reliability checked</div>
                     <div class="card" aria-label="Daily Brief preview">
                         <div class="cardTitle">
                             <h3>Daily Brief</h3>
                             <div class="pill pillGreen">ACT · High confidence</div>
+                        </div>
+                        <div class="tagRow">
+                            <div class="tag"><strong>Traffic</strong>: Meta TOFU</div>
+                            <div class="tag"><strong>Goal</strong>: +20% CVR</div>
+                            <div class="tag green"><strong>Decision</strong>: ACT</div>
+                            <div class="tag orange"><strong>Confidence</strong>: High</div>
                         </div>
 
                         <div class="rows">

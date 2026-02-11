@@ -812,6 +812,112 @@
         .row {
             box-shadow: 0 10px 18px rgba(15, 23, 42, .05);
         }
+
+        .section {
+            padding: 56px 0;
+        }
+
+        .sectionInner {
+            max-width: 920px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .h2 {
+            margin: 0;
+            font-size: 36px;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+        }
+
+        @media (max-width:560px) {
+            .h2 {
+                font-size: 26px;
+            }
+        }
+
+        .p {
+            margin: 14px auto 0;
+            max-width: 70ch;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .mechanism {
+            margin: 22px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+
+            padding: 18px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, .72);
+            border: 1px solid rgba(15, 23, 42, .08);
+            box-shadow: 0 18px 50px rgba(15, 23, 42, .08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .mCol {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .mPill {
+            padding: 8px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            border: 1px solid rgba(15, 23, 42, .10);
+            background: rgba(255, 255, 255, .78);
+            color: rgba(11, 13, 18, .78);
+            box-shadow: 0 10px 22px rgba(15, 23, 42, .05);
+        }
+
+        .mArrow {
+            color: rgba(11, 13, 18, .35);
+            font-size: 18px;
+            user-select: none;
+        }
+
+        .mCore,
+        .mOut {
+            padding: 10px 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(15, 23, 42, .10);
+            background: rgba(255, 255, 255, .78);
+            box-shadow: 0 10px 22px rgba(15, 23, 42, .05);
+            min-width: 190px;
+        }
+
+        .mCore {
+            border-color: rgba(47, 122, 95, .18);
+            background: rgba(47, 122, 95, .08);
+        }
+
+        .mCoreTitle,
+        .mOutTitle {
+            font-size: 13px;
+            font-weight: 800;
+            color: rgba(11, 13, 18, .90);
+        }
+
+        .mCoreSub,
+        .mOutSub {
+            margin-top: 4px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .microPunch {
+            margin-top: 14px;
+            font-size: 13px;
+            color: rgba(11, 13, 18, .72);
+        }
     </style>
 </head>
 
@@ -842,12 +948,12 @@
                     <span class="spark">✦</span>
                     <span><b>Early access</b> · Decision-driven pages for Shopify</span>
                 </div>
-                <h1>Pages that understand your store and improve to convert better over time.</h1>
+                <h1>Shopify pages that understand your store.</h1>
 
                 <p class="sub">
-                    Custodian get your store context and signals to build pages that truly fits your brand, audience and
-                    your customers.<br />
-                    And continuously improves each page like a senior growth team inside your store.
+                    Custodian get your store context to build pages that truly fits your brand, audience and
+                    customers.<br /><br />
+                    And continuously get page signals to improves each page like a senior growth team inside your store.
                 </p>
 
                 <div class="heroRow heroRowCenter">
@@ -908,6 +1014,40 @@
             <span class="anchorMark">⟡</span>
             You bring the intent. Custodian brings the context and signals.
         </div>
+        <section class="section" id="standard">
+            <div class="sectionInner">
+                <h2 class="h2">Pages shouldn’t ship without decision intelligence.</h2>
+                <p class="p">
+                    High-impact pages carry traffic, spend, and revenue risk.<br />
+                    You already have data — the hard part is turning it into the right move.<br />
+                    Custodian turns context + signals into one clear next decision.
+                </p>
+
+                <div class="mechanism">
+                    <div class="mCol">
+                        <div class="mPill">Store context</div>
+                        <div class="mPill">Traffic intent</div>
+                        <div class="mPill">Behavior signals</div>
+                    </div>
+
+                    <div class="mArrow">→</div>
+
+                    <div class="mCore">
+                        <div class="mCoreTitle">Decision layer</div>
+                        <div class="mCoreSub">Act · Hold · Wait · Rollback</div>
+                    </div>
+
+                    <div class="mArrow">→</div>
+
+                    <div class="mOut">
+                        <div class="mOutTitle">Page improvements</div>
+                        <div class="mOutSub">Expected vs observed</div>
+                    </div>
+                </div>
+
+                <div class="microPunch">One decision. Not more metrics.</div>
+            </div>
+        </section>
     </div>
 </body>
 

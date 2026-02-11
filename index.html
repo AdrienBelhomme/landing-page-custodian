@@ -615,6 +615,73 @@
             font-size: 15px;
             line-height: 1.75;
         }
+
+        /* FORCE hero to be centered (override the 62/38 grid) */
+        .hero.heroCenter {
+            display: block;
+            /* kill the 2-col grid */
+            padding: 56px 0 22px;
+        }
+
+        .heroInner {
+            max-width: 920px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* ensure heading/sub are centered */
+        .heroInner h1 {
+            margin: 0 auto;
+        }
+
+        .heroInner .sub {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* you were using .heroRow but it wasn't defined */
+        .heroRow {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        /* your primary CTA in hero must look like primary */
+        .heroInner .btn:not(.btnPrimary):not(.btnGhost) {
+            background: var(--accent-green);
+            color: #fff;
+            border-color: rgba(47, 122, 95, .25);
+            box-shadow: 0 12px 26px rgba(47, 122, 95, .22);
+        }
+
+        /* your ghost button selector was ".btn.ghost" but your class is "btn ghost" */
+        .btn.ghost {
+            background: rgba(255, 255, 255, .70);
+            color: var(--text);
+            border: 1px solid rgba(15, 23, 42, .10);
+            box-shadow: 0 10px 22px rgba(15, 23, 42, .08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .btn.ghost:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 28px rgba(15, 23, 42, .10);
+            border-color: rgba(47, 122, 95, .22);
+        }
+
+        /* Daily Brief card under hero */
+        .heroMedia {
+            margin-top: 26px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .heroMedia .card {
+            width: min(1080px, 100%);
+        }
     </style>
 </head>
 
@@ -650,8 +717,8 @@
                 </p>
 
                 <div class="heroRow heroRowCenter">
-                    <a class="btn" href="https://example.com" target="_blank" rel="noreferrer">Get early access →</a>
-                    <a class="btn ghost" href="#how">See how it works</a>
+                    <a class="btn btnPrimary" ...>Get early access →</a>
+                    <a class="btn btnGhost" href="#how">See how it works</a>
                 </div>
 
                 <div class="helper helperCenter">Works with Shopify. Installs in minutes.</div>
@@ -669,8 +736,38 @@
                 </div>
 
                 <div class="heroMedia">
-                    <!-- Remplace src par ton screenshot / mock -->
-                    <img class="heroShot" src="YOUR_DAILY_BRIEF_IMAGE.png" alt="Custodian Daily Brief preview" />
+                    <div class="card" aria-label="Daily Brief preview">
+                        <div class="cardTitle">
+                            <h3>Daily Brief</h3>
+                            <div class="pill pillGreen">ACT · High confidence</div>
+                        </div>
+
+                        <div class="rows">
+                            <div class="row">
+                                <strong>Compared to store baseline</strong>
+                                <span>−18% conversion</span>
+                            </div>
+                            <div class="row">
+                                <strong>Traffic</strong>
+                                <span>Meta TOFU · New customers</span>
+                            </div>
+                            <div class="row">
+                                <strong>Behavior signal</strong>
+                                <span>Scroll ok · ATC drop</span>
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <div class="move">
+                                <div>
+                                    <b>Next move</b>
+                                    <p>Replace the hero framing to match the ad promise and move proof above the first
+                                        CTA.</p>
+                                </div>
+                                <div class="pill pillOrange">Expected: +4–7%</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

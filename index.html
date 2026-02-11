@@ -63,7 +63,7 @@
                 radial-gradient(rgba(15, 23, 42, .18) 1px, transparent 1px);
             background-size: 24px 24px;
 
-            opacity: .18;
+            opacity: .5;
         }
 
         /* soft grain + blur halos */
@@ -537,6 +537,84 @@
         .below b {
             color: var(--text);
         }
+
+        /* hero centered like Fluar */
+        .heroCenter {
+            padding: 56px 0 12px;
+        }
+
+        .heroInner {
+            max-width: 920px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .heroCenter h1 {
+            max-width: 22ch;
+            margin: 0 auto;
+        }
+
+        .heroRowCenter {
+            justify-content: center;
+        }
+
+        .helperCenter {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* secondary CTA */
+        .btn.ghost {
+            background: rgba(255, 255, 255, .75);
+            color: var(--text);
+            border: 1px solid var(--border2);
+            box-shadow: none;
+        }
+
+        .btn.ghost:hover {
+            background: rgba(255, 255, 255, .92);
+        }
+
+        /* image under hero */
+        .heroMedia {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .heroShot {
+            width: min(1080px, 100%);
+            border-radius: 22px;
+            border: 1px solid var(--border2);
+            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, .7);
+        }
+
+        /* anchor line under hero (quiet authority) */
+        .anchorLine {
+            max-width: 920px;
+            margin: 18px auto 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .anchorMark {
+            display: inline-block;
+            margin-right: 6px;
+            opacity: .7;
+        }
+
+        /* reduce overall density a bit */
+        .section {
+            padding: 36px 0;
+        }
+
+        p,
+        .bullets {
+            font-size: 15px;
+            line-height: 1.75;
+        }
     </style>
 </head>
 
@@ -561,81 +639,46 @@
     </div>
 
     <div class="wrap topPad">
-        <section class="hero">
-            <!-- LEFT -->
-            <div>
-                <div class="kicker"><span class="kdot" aria-hidden="true"></span> Decision-driven Shopify Page Builder
+        <section class="hero heroCenter">
+            <div class="heroInner">
+                <h1>Build store-aware pages — and auto-improve to convert better over time.</h1>
+
+                <p class="sub">
+                    Custodian builds pages from your audience, traffic source, and real behavior signals —
+                    then improves them with decision-driven guidance.<br />
+                    No templates. No guesswork. No brief required.
+                </p>
+
+                <div class="heroRow heroRowCenter">
+                    <a class="btn" href="https://example.com" target="_blank" rel="noreferrer">Get early access →</a>
+                    <a class="btn ghost" href="#how">See how it works</a>
                 </div>
 
-                <h1>Build store-aware pages — and improve them over time.</h1>
+                <div class="helper helperCenter">Works with Shopify. Installs in minutes.</div>
 
-                <div class="sub">
-                    Built from your audience, traffic source, and real behavior signals —
-                    Custodian creates and continuously improves each page like a senior growth team inside your store.
-                </div>
-
-                <div class="authority">
-                    <div class="pin" aria-hidden="true">⟡</div>
-                    <div><b>You bring the intent.</b> Custodian brings the context and signals.</div>
-                </div>
-
-                <div class="ctaRow" id="cta">
-                    <a class="btn btnPrimary" href="#">Get early access →</a>
-                    <a class="btn btnGhost" href="#">See how it works</a>
-                </div>
-
-                <div class="microTrust">
-                    <span>No templates</span><span>No guesswork</span><span>No blank canvas</span>
-                </div>
-
-                <div class="below">
-                    <b>Decision Brief</b> comes first: act / hold / wait / rollback — with reasons, confidence, and
-                    expected impact.
-                </div>
-            </div>
-
-            <!-- RIGHT VISUAL -->
-            <div class="visual">
-                <div class="badgeFloat b1 gray"><i aria-hidden="true"></i> Intent: Meta TOFU</div>
-                <div class="badgeFloat b2"><i aria-hidden="true"></i> Traffic: Ads</div>
-                <div class="badgeFloat b3 orange"><i aria-hidden="true"></i> Decision: HOLD</div>
-
-                <div class="card">
-                    <div class="cardTitle">
-                        <h3>Decision Brief — Page v3</h3>
-                        <div class="pill pillGreen">Confidence 82%</div>
+                <div class="stepperWrap" aria-label="How it works in 4 steps">
+                    <div class="stepper">
+                        <div class="step"><b>1.</b> Connect Shopify</div>
+                        <div class="sep">→</div>
+                        <div class="step"><b>2.</b> Build</div>
+                        <div class="sep">→</div>
+                        <div class="step"><b>3.</b> Improve</div>
+                        <div class="sep">→</div>
+                        <div class="step"><b>4.</b> Convert</div>
                     </div>
+                </div>
 
-                    <div class="rows">
-                        <div class="row">
-                            <strong>Goal</strong>
-                            <span>+20% CVR vs store baseline</span>
-                        </div>
-                        <div class="row">
-                            <strong>Signals</strong>
-                            <span>Scroll high · ATC low</span>
-                        </div>
-                        <div class="row">
-                            <strong>Interpretation</strong>
-                            <span>Trust gap near CTA</span>
-                        </div>
-                    </div>
-
-                    <div class="divider"></div>
-
-                    <div class="move">
-                        <div>
-                            <b>Next move → Strengthen proof block above CTA</b>
-                            <p>
-                                Add social proof + guarantee summary above the first CTA.
-                                Keep the layout. Improve decision alignment.
-                            </p>
-                        </div>
-                        <div class="pill pillOrange">Expected +4–7% CVR</div>
-                    </div>
+                <div class="heroMedia">
+                    <!-- Remplace src par ton screenshot / mock -->
+                    <img class="heroShot" src="YOUR_DAILY_BRIEF_IMAGE.png" alt="Custodian Daily Brief preview" />
                 </div>
             </div>
         </section>
+
+        <div class="anchorLine">
+            <span class="anchorMark">⟡</span>
+            You bring the intent. Custodian brings the context and signals.
+        </div>
     </div>
 </body>
 

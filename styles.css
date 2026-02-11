@@ -985,6 +985,11 @@ p,
     display: inline-block;
 }
 
+
+.sparkGreen {
+    color: var(--accent-green);
+}
+
 .visionSection {
     padding: 26px 0;
 }

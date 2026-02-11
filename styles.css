@@ -218,6 +218,10 @@ a {
     .hero {
         grid-template-columns: 1fr;
     }
+
+    .sub {
+        margin-bottom: 40px;
+    }
 }
 
 .kicker {
@@ -259,7 +263,8 @@ h1 {
 }
 
 .sub {
-    margin-top: 12px;
+    margin-top: 22px;
+    margin-bottom: 22px;
     color: var(--muted);
     font-size: 18px;
     line-height: 1.6;

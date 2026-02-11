@@ -710,6 +710,10 @@ p,
     font-weight: 900;
 }
 
+.sparkGreen {
+    color: var(--accent-green);
+}
+
 .heroTopPill b {
     color: rgba(11, 13, 18, .92);
     font-weight: 750;

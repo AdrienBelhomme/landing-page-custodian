@@ -55,7 +55,7 @@ body::before {
         radial-gradient(rgba(15, 23, 42, .18) 1px, transparent 1px);
     background-size: 24px 24px;
 
-    opacity: .65;
+    opacity: .71;
 }
 
 /* soft grain + blur halos */

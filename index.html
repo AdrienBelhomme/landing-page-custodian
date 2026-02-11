@@ -4,31 +4,30 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Custodian Commerce — Ship Ready</title>
-    <meta name="description"
-        content="An AI page builder that learns your Shopify store over time. Create Shopify pages — and keep track of intent, traffic, and decisions — so your pages improve with real signals, not guesswork." />
-
+    <title>Custodian — Hero Mock</title>
     <style>
         :root {
-            /* Fluar-like: light, airy, quiet */
-            --bg: #f5f6f8;
+            --bg: #f7f8f9;
             --bg2: #ffffff;
             --text: #0b0d12;
-            --muted: #4b5563;
-            --faint: #6b7280;
+            --muted: #5b6472;
 
-            --border: rgba(15, 23, 42, .12);
-            --border2: rgba(15, 23, 42, .08);
+            --accent-green: #2f7a5f;
+            --accent-green-soft: #e7f3ee;
+
+            --accent-orange: #ff8a3d;
+            --accent-orange-soft: #fff1e8;
 
             --glass: rgba(255, 255, 255, .72);
             --glass2: rgba(255, 255, 255, .55);
-
-            --shadow: 0 16px 40px rgba(15, 23, 42, .10);
-            --shadow2: 0 10px 24px rgba(15, 23, 42, .10);
+            --border: rgba(15, 23, 42, .10);
+            --border2: rgba(15, 23, 42, .08);
+            --shadow: 0 18px 50px rgba(15, 23, 42, .10);
+            --shadow2: 0 12px 30px rgba(15, 23, 42, .10);
 
             --r: 16px;
             --r2: 22px;
-            --max: 1080px;
+            --max: 1120px;
         }
 
         * {
@@ -42,28 +41,35 @@
 
         body {
             margin: 0;
-            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
             color: var(--text);
-            background:
-                radial-gradient(1200px 700px at 20% -10%, rgba(59, 130, 246, .14), transparent 60%),
-                radial-gradient(1000px 640px at 90% 0%, rgba(168, 85, 247, .10), transparent 55%),
-                linear-gradient(180deg, var(--bg), var(--bg2));
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
             letter-spacing: -0.01em;
+            background:
+                radial-gradient(900px 520px at 18% -10%, rgba(47, 122, 95, .10), transparent 60%),
+                radial-gradient(900px 520px at 90% 0%, rgba(255, 138, 61, .08), transparent 55%),
+                linear-gradient(180deg, var(--bg), var(--bg2));
         }
 
-        /* subtle grid like Fluar */
+        /* dotted + subtle grain */
         body::before {
             content: "";
             position: fixed;
             inset: 0;
             pointer-events: none;
-            opacity: .28;
-            background-image:
-                linear-gradient(to right, rgba(15, 23, 42, .06) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(15, 23, 42, .06) 1px, transparent 1px);
-            background-size: 120px 120px;
-            transform: skewY(-6deg);
-            transform-origin: top left;
+            background-image: radial-gradient(rgba(15, 23, 42, .12) 1px, transparent 1px);
+            background-size: 22px 22px;
+            opacity: .12;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .06;
+            background:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+            mix-blend-mode: multiply;
         }
 
         a {
@@ -79,10 +85,10 @@
         }
 
         .topPad {
-            padding-top: 92px;
+            padding-top: 96px;
         }
 
-        /* Floating liquid-glass nav */
+        /* liquid glass nav */
         .navFloat {
             position: fixed;
             top: 14px;
@@ -97,14 +103,11 @@
             align-items: center;
             justify-content: space-between;
             gap: 16px;
-
             padding: 10px 12px;
             border-radius: 999px;
-
             background: linear-gradient(180deg, var(--glass), var(--glass2));
             border: 1px solid var(--border2);
             box-shadow: var(--shadow2);
-
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
@@ -113,17 +116,20 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: 650;
+            font-weight: 700;
             letter-spacing: -0.02em;
             white-space: nowrap;
         }
 
         .logo {
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             border-radius: 10px;
-            background: radial-gradient(circle at 30% 30%, rgba(15, 23, 42, .10), rgba(15, 23, 42, .02));
+            background:
+                radial-gradient(circle at 30% 30%, rgba(47, 122, 95, .22), rgba(255, 255, 255, .35)),
+                radial-gradient(circle at 70% 70%, rgba(255, 138, 61, .18), rgba(255, 255, 255, .0));
             border: 1px solid var(--border2);
+            box-shadow: 0 8px 18px rgba(15, 23, 42, .10);
         }
 
         .links {
@@ -134,11 +140,21 @@
             color: var(--muted);
         }
 
-        .links a:hover {
-            color: var(--text);
+        .links a {
+            padding: 8px 10px;
+            border-radius: 999px;
+            transition: background .15s ease, color .15s ease;
         }
 
-        @media (max-width: 760px) {
+        .links a:hover {
+            color: var(--text);
+            background: rgba(255, 255, 255, .65);
+            border: 1px solid rgba(15, 23, 42, .06);
+            padding: 7px 9px;
+            /* keep size stable */
+        }
+
+        @media (max-width:760px) {
             .links {
                 display: none;
             }
@@ -149,196 +165,373 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 10px 14px;
+            padding: 11px 15px;
             border-radius: 999px;
             border: 1px solid var(--border);
-            background: rgba(15, 23, 42, .92);
-            color: #fff;
             font-weight: 650;
             font-size: 13px;
-            box-shadow: 0 10px 22px rgba(15, 23, 42, .18);
-            transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+            transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
             white-space: nowrap;
         }
 
-        .btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 14px 26px rgba(15, 23, 42, .20);
-            background: rgba(15, 23, 42, .96);
+        .btnPrimary {
+            background: var(--accent-green);
+            color: #fff;
+            border-color: rgba(47, 122, 95, .25);
+            box-shadow: 0 12px 26px rgba(47, 122, 95, .22);
         }
 
-        /* Hero: minimal */
+        .btnPrimary:hover {
+            transform: translateY(-1px);
+            background: #256a52;
+            box-shadow: 0 16px 34px rgba(47, 122, 95, .28);
+        }
+
+        .btnGhost {
+            background: rgba(255, 255, 255, .70);
+            color: var(--text);
+            border-color: rgba(15, 23, 42, .10);
+            box-shadow: 0 10px 22px rgba(15, 23, 42, .08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .btnGhost:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 28px rgba(15, 23, 42, .10);
+            border-color: rgba(47, 122, 95, .22);
+        }
+
+        /* HERO */
         .hero {
-            padding: 42px 0 18px;
+            padding: 34px 0 26px;
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 18px;
+            grid-template-columns: 1.25fr .75fr;
+            /* 62/38 */
+            gap: 28px;
             align-items: start;
         }
 
+        @media (max-width: 980px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .kicker {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .70);
+            border: 1px solid rgba(15, 23, 42, .08);
+            box-shadow: 0 10px 26px rgba(15, 23, 42, .08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--muted);
+            font-size: 13px;
+            width: fit-content;
+        }
+
+        .kdot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: var(--accent-green);
+            box-shadow: 0 0 0 4px rgba(47, 122, 95, .16);
+        }
+
         h1 {
-            margin: 0;
+            margin: 14px 0 0;
             font-size: 64px;
-            line-height: 1.02;
+            line-height: 1.03;
             letter-spacing: -0.05em;
             max-width: 18ch;
         }
 
-        @media (max-width: 560px) {
+        @media (max-width:560px) {
             h1 {
                 font-size: 44px;
             }
         }
 
         .sub {
+            margin-top: 12px;
             color: var(--muted);
             font-size: 18px;
-            line-height: 1.55;
-            max-width: 72ch;
-            margin-top: 10px;
+            line-height: 1.6;
+            max-width: 64ch;
         }
 
-        .heroRow {
+        .authority {
+            margin-top: 12px;
             display: flex;
-            align-items: center;
-            gap: 14px;
-            flex-wrap: wrap;
-            margin-top: 14px;
-        }
-
-        .helper {
-            font-size: 13px;
-            color: var(--faint);
-        }
-
-        /* Stepper (Fluar-like) */
-        .stepperWrap {
-            margin-top: 14px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .stepper {
-            display: flex;
-            align-items: center;
             gap: 10px;
-            padding: 8px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, .75);
-            border: 1px solid var(--border2);
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        .step {
-            padding: 10px 14px;
-            border-radius: 999px;
-            font-size: 13px;
-            color: var(--muted);
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            white-space: nowrap;
-        }
-
-        .step b {
-            color: var(--text);
-            font-weight: 700;
-        }
-
-        .sep {
-            color: rgba(15, 23, 42, .22);
+            align-items: flex-start;
+            color: rgba(11, 13, 18, .88);
             font-size: 14px;
-            user-select: none;
+            line-height: 1.55;
         }
 
-        /* Sections below hero */
-        .section {
-            padding: 44px 0;
-            border-top: 1px solid rgba(15, 23, 42, .10);
+        .authority b {
+            color: var(--text);
+            font-weight: 750;
+        }
+
+        .pin {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            border-radius: 6px;
+            background: rgba(47, 122, 95, .10);
+            border: 1px solid rgba(47, 122, 95, .18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-green);
+            font-weight: 900;
+            flex: 0 0 auto;
+        }
+
+        .ctaRow {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+            align-items: center;
+        }
+
+        .microTrust {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .microTrust span {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .60);
+            border: 1px solid rgba(15, 23, 42, .08);
+            margin-right: 8px;
+        }
+
+        /* Right visual */
+        .visual {
             position: relative;
         }
 
-        .grid2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
-
-        @media (max-width: 920px) {
-            .grid2 {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .box {
+        .card {
             border-radius: var(--r2);
-            border: 1px solid var(--border2);
+            border: 1px solid rgba(15, 23, 42, .10);
             background: rgba(255, 255, 255, .72);
-            box-shadow: var(--shadow2);
-            padding: 18px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 16px;
+            overflow: hidden;
+            position: relative;
         }
 
-        h2 {
-            margin: 0 0 10px;
-            font-size: 22px;
-            letter-spacing: -0.02em;
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: -60px -60px auto auto;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle at 30% 30%, rgba(47, 122, 95, .18), transparent 60%);
+            pointer-events: none;
         }
 
-        p {
-            margin: 0;
-            color: var(--muted);
-            line-height: 1.7;
-            font-size: 15px;
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: auto auto -70px -70px;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle at 60% 40%, rgba(255, 138, 61, .16), transparent 62%);
+            pointer-events: none;
         }
 
-        .bullets {
-            margin: 12px 0 0;
-            padding-left: 18px;
-            color: var(--muted);
-            line-height: 1.9;
-            font-size: 15px;
-        }
-
-        .pills {
+        .cardTitle {
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 12px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .cardTitle h3 {
+            margin: 0;
+            font-size: 14px;
+            letter-spacing: -0.01em;
         }
 
         .pill {
-            padding: 8px 12px;
+            padding: 6px 10px;
             border-radius: 999px;
-            border: 1px solid var(--border2);
-            background: rgba(255, 255, 255, .75);
+            font-size: 12px;
+            border: 1px solid rgba(15, 23, 42, .10);
+            background: rgba(255, 255, 255, .70);
             color: var(--muted);
-            font-size: 13px;
+            white-space: nowrap;
         }
 
-        .footer {
-            padding: 22px 0 34px;
-            color: var(--faint);
-            font-size: 13px;
+        .pillGreen {
+            background: var(--accent-green-soft);
+            border-color: rgba(47, 122, 95, .18);
+            color: #1f5e46;
+            font-weight: 650;
+        }
+
+        .pillOrange {
+            background: var(--accent-orange-soft);
+            border-color: rgba(255, 138, 61, .22);
+            color: #a64a14;
+            font-weight: 650;
+        }
+
+        .rows {
+            display: grid;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .row {
             display: flex;
+            align-items: center;
             justify-content: space-between;
             gap: 12px;
-            flex-wrap: wrap;
+            padding: 10px 12px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .70);
+            border: 1px solid rgba(15, 23, 42, .08);
         }
 
-        .footer a {
-            color: var(--faint);
-            text-decoration: underline;
-            text-underline-offset: 3px;
+        .row strong {
+            font-size: 12px;
+            color: rgba(11, 13, 18, .85);
+            font-weight: 750;
+        }
+
+        .row span {
+            font-size: 12px;
+            color: var(--muted);
+            text-align: right;
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(15, 23, 42, .10);
+            margin: 10px 0;
+        }
+
+        .move {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, .72);
+            border: 1px solid rgba(15, 23, 42, .08);
+        }
+
+        .move b {
+            display: block;
+            font-size: 12px;
+            font-weight: 800;
+            color: rgba(11, 13, 18, .92);
+            margin-bottom: 6px;
+        }
+
+        .move p {
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.55;
+            color: var(--muted);
+            max-width: 34ch;
+        }
+
+        .badgeFloat {
+            position: absolute;
+            border-radius: 999px;
+            padding: 8px 10px;
+            font-size: 12px;
+            background: rgba(255, 255, 255, .78);
+            border: 1px solid rgba(15, 23, 42, .10);
+            box-shadow: 0 12px 26px rgba(15, 23, 42, .10);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: rgba(11, 13, 18, .88);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 5;
+        }
+
+        .badgeFloat i {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: var(--accent-green);
+            box-shadow: 0 0 0 4px rgba(47, 122, 95, .14);
+        }
+
+        .badgeFloat.orange i {
+            background: var(--accent-orange);
+            box-shadow: 0 0 0 4px rgba(255, 138, 61, .14);
+        }
+
+        .badgeFloat.gray i {
+            background: rgba(15, 23, 42, .35);
+            box-shadow: 0 0 0 4px rgba(15, 23, 42, .08);
+        }
+
+        .b1 {
+            top: -10px;
+            right: 6px;
+        }
+
+        .b2 {
+            top: 86px;
+            left: -10px;
+        }
+
+        .b3 {
+            bottom: -12px;
+            right: 28px;
+        }
+
+        @media (max-width:980px) {
+            .visual {
+                margin-top: 6px;
+            }
+
+            .b2 {
+                left: 6px;
+            }
+        }
+
+        /* subtle footer hint */
+        .below {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+            max-width: 78ch;
+        }
+
+        .below b {
+            color: var(--text);
         }
     </style>
 </head>
 
 <body>
-    <!-- Floating nav -->
+    <!-- Nav -->
     <div class="navFloat">
         <div class="navPill">
             <div class="brand">
@@ -347,188 +540,93 @@
             </div>
 
             <nav class="links" aria-label="Primary">
-                <a href="#context">Context</a>
-                <a href="#inputs">Inputs</a>
-                <a href="#pillars">Pillars</a>
-                <a href="#install">Install</a>
+                <a href="#how">How it works</a>
+                <a href="#engine">Decision engine</a>
+                <a href="#risk">Risk-aware</a>
+                <a href="#memory">Memory</a>
             </nav>
 
-            <!-- Single CTA (same action everywhere) -->
-            <!-- TODO: replace href -->
-            <a class="btn" href="https://example.com" target="_blank" rel="noreferrer">Build your first page →</a>
+            <a class="btn btnPrimary" href="#cta">Get early access →</a>
         </div>
     </div>
 
     <div class="wrap topPad">
-        <!-- HERO (minimal) -->
         <section class="hero">
+            <!-- LEFT -->
             <div>
-                <h1>An AI page builder that learns your Shopify store over time.</h1>
+                <div class="kicker"><span class="kdot" aria-hidden="true"></span> Decision-driven Shopify Page Builder
+                </div>
+
+                <h1>Build store-aware pages — and improve them over time.</h1>
+
                 <div class="sub">
-                    Create Shopify pages — and keep track of intent, traffic, and decisions —
-                    so your pages improve with real signals, not guesswork.
+                    Built from your audience, traffic source, and real behavior signals —
+                    Custodian creates and continuously improves each page like a senior growth team inside your store.
                 </div>
 
-                <div class="heroRow">
-                    <!-- Single CTA -->
-                    <!-- TODO: replace href -->
-                    <a class="btn" href="https://example.com" target="_blank" rel="noreferrer">Build your first page
-                        →</a>
+                <div class="authority">
+                    <div class="pin" aria-hidden="true">⟡</div>
+                    <div><b>You bring the intent.</b> Custodian brings the context and signals.</div>
                 </div>
-                <div class="helper">No dashboards. No metrics hell. Senior decisions, held over time.</div>
-            </div>
 
-            <!-- Stepper under hero -->
-            <div class="stepperWrap" aria-label="How it works in 4 steps">
-                <div class="stepper">
-                    <div class="step"><b>1.</b> Connect Shopify</div>
-                    <div class="sep">→</div>
-                    <div class="step"><b>2.</b> Create your page</div>
-                    <div class="sep">→</div>
-                    <div class="step"><b>3.</b> Optimize it</div>
-                    <div class="sep">→</div>
-                    <div class="step"><b>4.</b> Convert</div>
+                <div class="ctaRow" id="cta">
+                    <a class="btn btnPrimary" href="#">Get early access →</a>
+                    <a class="btn btnGhost" href="#">See how it works</a>
+                </div>
+
+                <div class="microTrust">
+                    <span>No templates</span><span>No guesswork</span><span>No blank canvas</span>
+                </div>
+
+                <div class="below">
+                    <b>Decision Brief</b> comes first: act / hold / wait / rollback — with reasons, confidence, and
+                    expected impact.
                 </div>
             </div>
-        </section>
 
-        <div style="margin-top:18px; color: var(--muted); font-size: 15px;">
-            <b style="color: var(--text);">Pages don’t exist in isolation. Decisions do.</b>
-            Most builders start from zero every time. This one builds on what already happened.
-        </div>
+            <!-- RIGHT VISUAL -->
+            <div class="visual">
+                <div class="badgeFloat b1 gray"><i aria-hidden="true"></i> Intent: Meta TOFU</div>
+                <div class="badgeFloat b2"><i aria-hidden="true"></i> Traffic: Ads</div>
+                <div class="badgeFloat b3 orange"><i aria-hidden="true"></i> Decision: HOLD</div>
 
+                <div class="card">
+                    <div class="cardTitle">
+                        <h3>Decision Brief — Page v3</h3>
+                        <div class="pill pillGreen">Confidence 82%</div>
+                    </div>
 
+                    <div class="rows">
+                        <div class="row">
+                            <strong>Goal</strong>
+                            <span>+20% CVR vs store baseline</span>
+                        </div>
+                        <div class="row">
+                            <strong>Signals</strong>
+                            <span>Scroll high · ATC low</span>
+                        </div>
+                        <div class="row">
+                            <strong>Interpretation</strong>
+                            <span>Trust gap near CTA</span>
+                        </div>
+                    </div>
 
-        <!-- CONTEXT -->
-        <section class="section" id="context">
-            <div class="grid2">
-                <div class="box">
-                    <h2>Page performance needs context — with or without AI.</h2>
-                    <p>
-                        Pages don’t fail randomly. They fail when intent, traffic, and decisions get disconnected.
-                        Our AI page builder uses real store context —
-                        so you stop guessing, and pages improve for the right reasons.
-                    </p>
-                </div>
-                <div class="box">
-                    <h2>What we keep track of</h2>
-                    <ul class="bullets">
-                        <li>Page intent &amp; hypothesis</li>
-                        <li>Traffic source (TOFU / BOFU, channel)</li>
-                        <li>Version history &amp; past changes</li>
-                        <li>Expected vs observed impact</li>
-                    </ul>
-                    <div class="pills">
-                        <div class="pill">No context means blind optimization.</div>
-                        <div class="pill">Context turns AI into a senior operator.</div>
+                    <div class="divider"></div>
+
+                    <div class="move">
+                        <div>
+                            <b>Next move → Strengthen proof block above CTA</b>
+                            <p>
+                                Add social proof + guarantee summary above the first CTA.
+                                Keep the layout. Improve decision alignment.
+                            </p>
+                        </div>
+                        <div class="pill pillOrange">Expected +4–7% CVR</div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- INPUT QUALITY -->
-        <section class="section" id="inputs">
-            <div class="grid2">
-                <div class="box">
-                    <h2>High-performing pages start with the right inputs.</h2>
-                    <p>
-                        Most Shopify pages are created without:
-                        a clear goal
-                        a traffic context
-                        a testable hypothesis
-                        They’re just another page.
-                        Our page builder starts where others stop:
-                        with intent, traffic, and a decision to validate.
-                    </p>
-                </div>
-
-                <div class="box">
-                    <h2>No garbage in. No garbage out.</h2>
-                    <p>
-                        Avoid guesswork before it starts.
-                        Your page is only as good as the context it’s built on.
-                        That’s why we never create a page without:
-                    </p>
-                    <ul class="bullets">
-                        <li>A defined objective (what should improve)</li>
-                        <li>A traffic context (who it’s for, where it comes from)</li>
-                        <li>A hypothesis (why this should work)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="grid2" style="margin-top:14px;">
-                <div class="box">
-                    <h2>Easy to create. Even easier to improve over time.</h2>
-                    <p>
-                        Creating a page takes minutes.
-                        Improving it doesn’t require starting over.
-                        The system keeps track of what you tried,
-                        what you expected,
-                        and what actually happened —
-                        so optimization becomes continuity, not chaos.
-                    </p>
-                </div>
-                <div class="box">
-                    <h2>Trust signature</h2>
-                    <p>
-                        Built to reduce decision risk.
-                        Designed to stay out of your way.
-                        We suggest. You decide.
-                        In minutes — not days.
-                        No dashboards.
-                        No metrics hell.
-                        Just senior intelligence to help you decide faster and better.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CORE PILLARS -->
-        <section class="section" id="pillars">
-            <div class="grid2">
-                <div class="box">
-                    <h2>Core pillars</h2>
-                    <ul class="bullets">
-                        <li>🧠 Built on decisions, not iterations</li>
-                        <li>⏳ Slows you down when speed would hurt</li>
-                        <li>🧭 Failure is handled, not hidden</li>
-                    </ul>
-                </div>
-                <div class="box">
-                    <h2>Quiet differentiation</h2>
-                    <ul class="bullets">
-                        <li>Other tools generate pages → this one builds continuity</li>
-                        <li>Other tools optimize metrics → this one protects decisions</li>
-                        <li>Other tools push action → this one explains when not to act</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- INSTALL PROMISE -->
-        <section class="section" id="install">
-            <div class="box">
-                <h2>From day one, it takes the lead.</h2>
-                <p>
-                    Install the app and get a Store Brief:
-                    a clear read of what’s happening in your store — and where to focus.
-                    No setup maze.
-                    No blank screen.
-                    No guessing.
-                </p>
-            </div>
-        </section>
-
-        <div class="footer">
-            <div>© <span id="y"></span> Custodian Commerce</div>
-            <div><a href="#context">Context</a> · <a href="#inputs">Inputs</a> · <a href="#pillars">Pillars</a></div>
-        </div>
     </div>
-
-    <script>
-        document.getElementById("y").textContent = new Date().getFullYear();
-    </script>
 </body>
 
 </html>

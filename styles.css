@@ -917,3 +917,202 @@ p,
     font-size: 13px;
     color: rgba(11, 13, 18, .72);
 }
+
+/* =========================
+   Vision page additions
+   (append to your styles.css)
+========================= */
+
+.visionHero {
+    padding: 56px 0 18px;
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.visionH1 {
+    margin: 14px 0 0;
+    font-size: 60px;
+    line-height: 1.05;
+    letter-spacing: -0.05em;
+}
+
+@media (max-width:560px) {
+    .visionH1 {
+        font-size: 40px;
+    }
+}
+
+.visionSub {
+    margin: 12px auto 0;
+    max-width: 72ch;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.65;
+}
+
+.microUnderCta {
+    margin-top: 10px;
+    color: rgba(11, 13, 18, .70);
+    font-size: 13px;
+}
+
+.heroTopPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .70);
+    border: 1px solid rgba(15, 23, 42, .08);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, .08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.heroTopPill .spark {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--accent-green);
+    box-shadow: 0 0 0 4px rgba(47, 122, 95, .16);
+    display: inline-block;
+}
+
+.visionSection {
+    padding: 26px 0;
+}
+
+.visionCard {
+    max-width: 920px;
+    margin: 0 auto;
+    border-radius: 22px;
+    border: 1px solid rgba(15, 23, 42, .08);
+    background: rgba(255, 255, 255, .72);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, .08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.visionCard::before {
+    content: "";
+    position: absolute;
+    inset: -60px -60px auto auto;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle at 30% 30%, rgba(47, 122, 95, .14), transparent 60%);
+    pointer-events: none;
+}
+
+.visionCard::after {
+    content: "";
+    position: absolute;
+    inset: auto auto -80px -80px;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle at 60% 40%, rgba(255, 138, 61, .12), transparent 62%);
+    pointer-events: none;
+}
+
+.visionLead {
+    margin: 0;
+    color: rgba(11, 13, 18, .80);
+    font-size: 16px;
+    line-height: 1.85;
+    position: relative;
+    z-index: 1;
+}
+
+.visionBody {
+    margin: 0;
+    color: rgba(11, 13, 18, .78);
+    font-size: 15px;
+    line-height: 1.85;
+    position: relative;
+    z-index: 1;
+}
+
+.visionTitlePill {
+    margin: 0 0 10px;
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 750;
+    color: rgba(11, 13, 18, .78);
+    background: rgba(255, 255, 255, .78);
+    border: 1px solid rgba(15, 23, 42, .10);
+    position: relative;
+    z-index: 1;
+}
+
+.visionGrid {
+    max-width: 920px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+@media (max-width: 920px) {
+    .visionGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.visionMechanism {
+    margin-top: 16px;
+}
+
+.visionClosing {
+    padding: 24px;
+}
+
+.visionClosingLine {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.85;
+    color: rgba(11, 13, 18, .84);
+    position: relative;
+    z-index: 1;
+    font-weight: 650;
+}
+
+.visionCta {
+    padding: 38px 0 10px;
+}
+
+.visionCtaCard {
+    max-width: 920px;
+    margin: 0 auto;
+    border-radius: 26px;
+    border: 1px solid rgba(15, 23, 42, .08);
+    background: rgba(255, 255, 255, .78);
+    box-shadow: 0 20px 60px rgba(15, 23, 42, .10);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 22px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.visionCtaH2 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+}
+
+.visionCtaP {
+    margin: 10px auto 0;
+    max-width: 72ch;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}

@@ -767,7 +767,7 @@ p,
 }
 
 .heroMedia .card {
-    width: min(1080px, 100%);
+    width: min(760px, 100%);
 }
 
 /* --- Propy-style top pill --- */
@@ -826,7 +826,7 @@ p,
 }
 
 .sparkGreen {
-    color: var(--accent-green);
+    color: var(--accent-lime-strong);
 }
 
 
@@ -1255,4 +1255,119 @@ p,
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   Daily Brief v2 (Hero)
+   (append-only)
+========================= */
+
+.dbCard {
+    padding: 16px 16px 14px;
+}
+
+/* header: Daily Brief + verdict pill */
+.dbHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.dbTitle {
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+}
+
+/* tighter meta row */
+.dbMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* single comparison line */
+.dbLine {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .70);
+    border: 1px solid rgba(15, 23, 42, .08);
+    box-shadow: 0 10px 18px rgba(15, 23, 42, .05);
+    position: relative;
+    z-index: 2;
+}
+
+.dbLabel {
+    font-size: 12px;
+    color: rgba(11, 13, 18, .78);
+    font-weight: 700;
+}
+
+.dbValue {
+    font-size: 12px;
+    color: rgba(11, 13, 18, .72);
+    font-weight: 750;
+}
+
+/* divider */
+.dbDivider {
+    height: 1px;
+    background: rgba(15, 23, 42, .10);
+    margin: 12px 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* expected centered, no overlap */
+.dbExpected {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* next move centered, readable */
+.dbMove {
+    text-align: center;
+    padding: 12px 12px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .72);
+    border: 1px solid rgba(15, 23, 42, .08);
+    position: relative;
+    z-index: 2;
+}
+
+.dbMove b {
+    display: block;
+    font-size: 12px;
+    font-weight: 800;
+    color: rgba(11, 13, 18, .92);
+    margin-bottom: 6px;
+}
+
+.dbMove p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgba(11, 13, 18, .72);
+    max-width: 56ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* kill the overlapping hero floats for this hero section */
+.heroFloat {
+    display: none;
 }

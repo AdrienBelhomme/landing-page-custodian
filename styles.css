@@ -54,6 +54,7 @@ body {
 */
     background:
         linear-gradient(180deg, #f3f4f6, #eef1f4);
+
 }
 
 
@@ -71,6 +72,9 @@ body::before {
     opacity: .71;
 }
  */
+
+/* grid squares 1 
+
 body::before {
     content: "";
     position: fixed;
@@ -84,8 +88,42 @@ body::before {
 
     background-size: 42px 42px;
 }
+    */
 
-/* soft grain + blur halos */
+/* grid squares 2 */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .55;
+
+    background-image:
+        linear-gradient(rgba(15, 23, 42, .06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, .06) 1px, transparent 1px);
+
+    background-size: 56px 56px;
+}
+
+
+/* star intersections */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .35;
+
+    background-image:
+        radial-gradient(circle at center,
+            rgba(15, 23, 42, .18) 0px,
+            rgba(15, 23, 42, .18) 1.5px,
+            transparent 2px);
+
+    background-size: 56px 56px;
+}
+
+/* soft grain + blur halos v1
 body::after {
     content: "";
     position: fixed;
@@ -100,6 +138,7 @@ body::after {
     opacity: .08;
     mix-blend-mode: multiply;
 }
+     */
 
 a {
     color: inherit;
@@ -152,7 +191,11 @@ a {
 
 
 .grad-lime {
-    background: linear-gradient(90deg, #9be15d, #d7ff2f);
+    background: linear-gradient(90deg,
+            #6aa84f 0%,
+            #b7f34a 45%,
+            #e1ff3a 60%,
+            #6aa84f 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

@@ -192,10 +192,10 @@ a {
 
 .grad-lime {
     background: linear-gradient(90deg,
-            #6aa84f 0%,
-            #b7f34a 45%,
-            #e1ff3a 60%,
-            #6aa84f 100%);
+            #4f7f3a 0%,
+            #c9ff2e 50%,
+            #e1ff3a 65%,
+            #4f7f3a 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

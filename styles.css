@@ -4,11 +4,20 @@
     --text: #0b0d12;
     --muted: #5b6472;
 
+    --bg-main: #f3f4f6;
+    --bg-panel: #ffffff;
+    --text-main: #0b0d12;
+    --text-muted: #5f6775;
+
     --accent-green: #2f7a5f;
     --accent-green-soft: #e7f3ee;
 
-    --accent-orange: #ff8a3d;
-    --accent-orange-soft: #fff1e8;
+    --accent-lime: #d7ff2f;
+    --accent-lime-strong: #c7f000;
+    --accent-lime-soft: #f4ffd9;
+
+    --accent-orange: #ff5a1f;
+    --accent-orange-soft: #ffe9e1;
 
     --glass: rgba(255, 255, 255, .72);
     --glass2: rgba(255, 255, 255, .55);
@@ -37,14 +46,18 @@ body {
     font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     letter-spacing: -0.01em;
 
-    /* base light tech gradient */
+    /* base light tech gradient 
     background:
         radial-gradient(900px 520px at 22% -10%, rgba(47, 122, 95, .12), transparent 60%),
         radial-gradient(700px 420px at 85% 10%, rgba(47, 122, 95, .08), transparent 55%),
         linear-gradient(180deg, #f6f8f7, #ffffff);
+*/
+    background:
+        linear-gradient(180deg, #f3f4f6, #eef1f4);
 }
 
-/* dotted modern grid */
+
+/* dotted modern grid
 body::before {
     content: "";
     position: fixed;
@@ -56,6 +69,20 @@ body::before {
     background-size: 24px 24px;
 
     opacity: .71;
+}
+ */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .45;
+
+    background-image:
+        linear-gradient(rgba(15, 23, 42, .06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, .06) 1px, transparent 1px);
+
+    background-size: 42px 42px;
 }
 
 /* soft grain + blur halos */
@@ -123,6 +150,14 @@ a {
     white-space: nowrap;
 }
 
+
+.grad-lime {
+    background: linear-gradient(90deg, #9be15d, #d7ff2f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 .logo {
     width: 28px;
     height: 28px;
@@ -176,11 +211,23 @@ a {
     white-space: nowrap;
 }
 
+/* old button primary 
 .btnPrimary {
     background: var(--accent-green);
     color: #fff;
     border-color: rgba(47, 122, 95, .25);
     box-shadow: 0 12px 26px rgba(47, 122, 95, .22);
+}
+    */
+
+
+.btnPrimary {
+    background: linear-gradient(180deg, #d7ff2f, #c7f000);
+    color: #111;
+    border: 1px solid rgba(0, 0, 0, .08);
+    box-shadow:
+        0 12px 28px rgba(199, 240, 0, .35),
+        inset 0 1px 0 rgba(255, 255, 255, .6);
 }
 
 .btnPrimary:hover {

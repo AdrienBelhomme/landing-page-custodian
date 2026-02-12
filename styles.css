@@ -107,20 +107,29 @@ body::before {
 
 
 /* star intersections */
+/* star intersections (cross style, not dots) */
 body::after {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
-    opacity: .35;
+    opacity: .28;
 
     background-image:
-        radial-gradient(circle at center,
-            rgba(15, 23, 42, .18) 0px,
-            rgba(15, 23, 42, .18) 1.5px,
-            transparent 2px);
+        linear-gradient(rgba(15, 23, 42, .22), rgba(15, 23, 42, .22)),
+        linear-gradient(90deg, rgba(15, 23, 42, .22), rgba(15, 23, 42, .22));
 
-    background-size: 56px 56px;
+    background-size: 2px 10px, 10px 2px;
+    background-position: center;
+    background-repeat: repeat;
+
+    /* align with grid */
+    background-position:
+        28px 28px,
+        28px 28px;
+
+    background-repeat: repeat;
+    background-origin: content-box;
 }
 
 /* soft grain + blur halos v1
@@ -191,11 +200,7 @@ a {
 
 
 .grad-lime {
-    background: linear-gradient(90deg,
-            #4f7f3a 0%,
-            #c9ff2e 50%,
-            #e1ff3a 65%,
-            #4f7f3a 100%);
+    background: linear-gradient(90deg, #427921 0%, #c7f001 74%, #c8f103 72%, #476f19 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -265,6 +270,20 @@ a {
 
 
 .btnPrimary {
+    background: linear-gradient(180deg, #b7f34a, #9edc2a);
+    color: #0b0d12;
+    border-color: rgba(158, 220, 42, .45);
+    box-shadow: 0 12px 28px rgba(158, 220, 42, .35);
+}
+
+.btnPrimary:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(180deg, #cfff3a, #a6e52e);
+    box-shadow: 0 16px 36px rgba(158, 220, 42, .45);
+}
+
+
+.btnPrimary {
     background: linear-gradient(180deg, #d7ff2f, #c7f000);
     color: #111;
     border: 1px solid rgba(0, 0, 0, .08);
@@ -273,11 +292,7 @@ a {
         inset 0 1px 0 rgba(255, 255, 255, .6);
 }
 
-.btnPrimary:hover {
-    transform: translateY(-1px);
-    background: #256a52;
-    box-shadow: 0 16px 34px rgba(47, 122, 95, .28);
-}
+
 
 .btnGhost {
     background: rgba(255, 255, 255, .70);
@@ -289,9 +304,8 @@ a {
 }
 
 .btnGhost:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 14px 28px rgba(15, 23, 42, .10);
-    border-color: rgba(47, 122, 95, .22);
+    border-color: rgba(158, 220, 42, .35);
+    box-shadow: 0 10px 24px rgba(158, 220, 42, .18);
 }
 
 /* HERO */

@@ -434,7 +434,7 @@ h1 {
     inset: -60px -60px auto auto;
     width: 180px;
     height: 180px;
-    background: radial-gradient(circle at 30% 30%, rgba(47, 122, 95, .18), transparent 60%);
+    background: radial-gradient(circle at 71% 72%, rgba(47, 122, 95, .18), transparent 59%);
     pointer-events: none;
 }
 
@@ -476,6 +476,13 @@ h1 {
     background: var(--accent-green-soft);
     border-color: rgba(47, 122, 95, .18);
     color: #1f5e46;
+    font-weight: 650;
+}
+
+.pillGreenAdrien {
+    background: var(--accent-lime-soft);
+    border-color: var(--accent-green);
+    color: var(--accent-green);
     font-weight: 650;
 }
 
@@ -1279,8 +1286,9 @@ p,
 
 .dbTitle {
     margin: 0;
-    font-size: 14px;
+    font-size: 17px;
     letter-spacing: -0.01em;
+    font-weight: 500;
 }
 
 /* tighter meta row */
@@ -1297,7 +1305,7 @@ p,
 .dbLine {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 12px;
     padding: 10px 12px;
     border-radius: 14px;
@@ -1317,7 +1325,7 @@ p,
 .dbValue {
     font-size: 12px;
     color: rgba(11, 13, 18, .72);
-    font-weight: 750;
+    font-weight: 500;
 }
 
 /* divider */
@@ -1336,6 +1344,8 @@ p,
     margin-bottom: 10px;
     position: relative;
     z-index: 2;
+    margin-top: 10px;
+    margin-bottom: 0px;
 }
 
 /* next move centered, readable */

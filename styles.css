@@ -1434,3 +1434,33 @@ p,
     transform: translateY(0px);
     filter: brightness(.98);
 }
+
+/* Expected impact — lime signal (not a button) */
+.dbExpectedText {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+
+    background: rgba(215, 255, 47, .16);
+    border: 1px solid rgba(199, 240, 0, .45);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+
+    color: #3a5f0b;
+}
+
+/* small dot to make it feel like a signal, not UI chrome */
+.dbExpectedText::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--accent-lime-strong);
+    box-shadow: 0 0 0 4px rgba(199, 240, 0, .18);
+}

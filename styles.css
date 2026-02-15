@@ -340,7 +340,7 @@ a {
 
 h1 {
     margin: 14px 0 0;
-    font-size: 64px;
+    font-size: 58px;
     line-height: 1.03;
     letter-spacing: -0.05em;
     max-width: 18ch;
@@ -966,7 +966,7 @@ p,
     margin: 14px auto 0;
     max-width: 70ch;
     color: var(--muted);
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.75;
 }
 
@@ -2000,10 +2000,10 @@ p,
 .subheadertop {
     margin-bottom: 0;
     margin-top: 0;
-    font-size: 18px;
+    font-size: 18px !important;
 }
 
 .subheaderbottom {
     margin-top: 8px;
-    font-size: 18px;
+    font-size: 18px !important;
 }

@@ -1997,8 +1997,13 @@ p,
     }
 }
 
-.subheader {
-    margin: 0 0 16px 0;
-    padding: 0;
-    line-height: 1.6;
+.subheadertop {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.subheaderbottom {
+    margin-top: 8px;
+    font-size: 18px;
 }

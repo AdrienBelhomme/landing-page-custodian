@@ -49,7 +49,14 @@
                             <li><strong>Legal policies</strong> — shipping and refund policy text, used to generate accurate buy-box content.</li>
                             <li><strong>Theme files</strong> — we write a custom page template to your active theme to render Custodian-generated pages.</li>
                         </ul>
-                        <p>We do <strong>not</strong> access customer personal information, payment details, or order-level data.</p>
+                        <p>We also collect <strong>storefront behavioral data</strong> via a lightweight Shopify web pixel embedded on generated pages. This includes:</p>
+                        <ul>
+                            <li>Anonymous session and page-view identifiers (randomly generated, not tied to customer accounts)</li>
+                            <li>Page views, scroll depth, CTA clicks, time on page, and exit events</li>
+                            <li>Viewport dimensions and device type (mobile/desktop)</li>
+                            <li>UTM parameters (source, medium, campaign, term, content) and referrer domain</li>
+                        </ul>
+                        <p>This pixel does <strong>not</strong> collect IP addresses, cookies, customer names, emails, or any personally identifiable information. We do <strong>not</strong> access customer personal information, payment details, or order-level data.</p>
                     </div>
                 </div>
 
@@ -77,8 +84,8 @@
                         <ul>
                             <li><strong>OpenAI</strong> — product descriptions, store context, and page content are sent to OpenAI's API for content generation and analysis. Data is processed under OpenAI's <a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noopener">API data usage policy</a> and is not used to train their models.</li>
                             <li><strong>Anthropic</strong> — similar store context may be sent to Anthropic's Claude API for planning and content generation. Data is processed under Anthropic's <a href="https://www.anthropic.com/policies/privacy" target="_blank" rel="noopener">privacy policy</a>.</li>
-                            <li><strong>Meta (Facebook)</strong> — if you connect your Meta Ads account, we read ad creative data from the Meta Marketing API to align page content with your active campaigns. We do not write to or modify your ad account.</li>
-                            <li><strong>Crisp</strong> — we use Crisp for in-app live chat support. Your shop domain and email may be shared with Crisp to provide contextual support.</li>
+                            <li><strong>Meta (Facebook)</strong> — we may use the Meta Marketing API to read ad creative data and align page content with active campaigns. This integration uses server-side credentials configured by Custodian, not merchant-connected OAuth. We read ad data only; we do not write to or modify any ad account.</li>
+                            <li><strong>Crisp</strong> — we use Crisp for in-app live chat support. Your merchant email, name, shop domain, and current app route are shared with Crisp to provide contextual support.</li>
                         </ul>
                         <p>We do not sell, rent, or trade your data to any third party.</p>
                     </div>
@@ -92,7 +99,7 @@
                         <p>We retain your store data for as long as your Custodian app is installed. Specifically:</p>
                         <ul>
                             <li><strong>Page versions and history</strong> — stored indefinitely while the app is installed, so you can roll back to any previous version.</li>
-                            <li><strong>Behavioral telemetry</strong> — aggregated event data (page views, clicks, conversions) is retained for up to 90 days.</li>
+                            <li><strong>Behavioral telemetry</strong> — anonymous event data (page views, clicks, scroll depth) is retained while the app is installed and deleted upon uninstall.</li>
                             <li><strong>AI-generated content</strong> — generated page content is stored as part of your page history.</li>
                         </ul>
                         <p>When you uninstall Custodian, we delete all associated store data within 30 days. The custom page template written to your theme is not automatically removed — you can delete it manually from your theme editor.</p>
@@ -116,7 +123,7 @@
                 <div class="policyDivider"></div>
 
                 <div class="policyBlock">
-                    <div class="policyTitlePill">6. GDPR & CCPA</div>
+                    <div class="policyTitlePill">6. GDPR & CCPA/CPRA</div>
                     <div class="policyBody">
                         <p>If you are located in the European Economic Area (EEA) or California, you have additional rights regarding your data:</p>
                         <ul>
@@ -125,9 +132,12 @@
                             <li><strong>Right to erasure</strong> — you can request deletion of your data (see section 5).</li>
                             <li><strong>Right to data portability</strong> — you can request your data in a machine-readable format.</li>
                             <li><strong>Right to object</strong> — you can object to processing of your data for specific purposes.</li>
+                            <li><strong>Right to correction</strong> (CPRA) — you can request correction of inaccurate personal information.</li>
+                            <li><strong>Right to opt out</strong> (CPRA) — we do not sell or share personal information for cross-context behavioral advertising.</li>
+                            <li><strong>Non-discrimination</strong> — we will not discriminate against you for exercising your privacy rights.</li>
                         </ul>
                         <p>To exercise any of these rights, contact us at <strong>adrien@custodiancommerce.com</strong>.</p>
-                        <p>Our legal basis for processing store data is <strong>legitimate interest</strong> — specifically, to provide the app features you installed Custodian for. We process data only as necessary to deliver the service.</p>
+                        <p>Our legal basis for processing merchant store data is <strong>contractual necessity</strong> — we process data as required to deliver the app features you installed Custodian for. For storefront visitor analytics collected via our pixel, we rely on <strong>legitimate interest</strong> in providing page performance insights, and we honor customer consent signals via Shopify's consent API.</p>
                     </div>
                 </div>
 
